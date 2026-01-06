@@ -1,101 +1,78 @@
 import { motion } from 'framer-motion';
-import { Sparkles, MessageCircle } from 'lucide-react';
+import { Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
-      style={{
-        backgroundImage: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%)',
-      }}
-    >
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `url('https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
+    <section id="inicio" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-cream">
+      
+      {/* 1. DECORACIÓN DE FONDO (Manchas suaves para que no se vea plano) */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-wine/5 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-red/5 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/4 pointer-events-none" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-4xl mx-auto">
+          
+          {/* 2. ETIQUETA SUPERIOR (Píldora) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-wine/20 bg-brand-wine/5 text-brand-wine mb-8"
           >
-            <span className="inline-flex items-center space-x-2 bg-accent/20 backdrop-blur-sm text-accent-light px-4 py-2 rounded-full text-sm font-medium border border-accent/30">
-              <Sparkles className="w-4 h-4" />
-              <span>20 años de experiencia en Suba</span>
-            </span>
+            <Sparkles className="w-4 h-4" />
+            <span className="text-sm font-medium tracking-wide">20 años de experiencia en Suba</span>
           </motion.div>
 
+          {/* 3. TÍTULO PRINCIPAL (Color Vino) */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            transition={{ delay: 0.1 }}
+            className="font-serif text-5xl md:text-7xl font-bold text-brand-wine mb-6 leading-tight"
           >
-            Entendemos tu estilo,
-            <br />
-            <span className="text-accent-light">diseñamos tu mirada.</span>
+            Entendemos tu estilo,<br />
+            <span className="italic font-light text-brand-red">diseñamos tu mirada.</span>
           </motion.h1>
 
+          {/* 4. SUBTÍTULO (Color Texto Oscuro) */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-200 mb-10 font-light max-w-3xl mx-auto"
+            transition={{ delay: 0.2 }}
+            className="text-xl text-brand-text/80 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            20 años uniendo precisión clínica con asesoría de imagen en Suba, Bogotá.
+            Unimos precisión clínica con asesoría de imagen personalizada. 
+            Porque tus gafas no son solo para ver, son tu identidad.
           </motion.p>
 
+          {/* 5. BOTONES (Vino y Borde Rojo) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl transition-all duration-200 flex items-center space-x-2 w-full sm:w-auto justify-center"
-              onClick={() => {
-                const element = document.getElementById('servicios');
-                element?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            {/* Botón Principal */}
+            <a 
+              href="#guia"
+              className="group bg-brand-wine text-brand-cream px-8 py-4 rounded-full font-semibold text-lg hover:bg-brand-red transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
             >
-              <Sparkles className="w-5 h-5" />
-              <span>Encuentra tu estilo ideal</span>
-            </motion.button>
+              Encuentra tu estilo ideal
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg border-2 border-white/30 transition-all duration-200 flex items-center space-x-2 w-full sm:w-auto justify-center"
-              onClick={() => window.open('https://wa.me/573001234567', '_blank')}
+            {/* Botón Secundario */}
+            <a 
+              href="https://wa.me/573001234567" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group border-2 border-brand-wine text-brand-wine px-8 py-4 rounded-full font-semibold text-lg hover:bg-brand-wine hover:text-brand-cream transition-all duration-300 flex items-center gap-2"
             >
               <MessageCircle className="w-5 h-5" />
-              <span>Agendar por WhatsApp</span>
-            </motion.button>
+              Agendar por WhatsApp
+            </a>
           </motion.div>
-        </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 120"
-          className="w-full h-auto"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="#f8f9fa"
-            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
-          />
-        </svg>
+        </div>
       </div>
     </section>
   );
