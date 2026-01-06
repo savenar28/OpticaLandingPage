@@ -1,99 +1,79 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-
-const faceShapes = [
-  {
-    shape: 'Rostro Redondo',
-    recommendation: 'Marcos Rectangulares o Cuadrados',
-    description: 'Ángulos definidos para alargar visualmente tu rostro.',
-    image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    shape: 'Rostro Cuadrado',
-    recommendation: 'Marcos Redondos o Cat Eye',
-    description: 'Suaviza los ángulos con formas curvas y elegantes.',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    shape: 'Rostro Ovalado',
-    recommendation: 'Cualquier Estilo te Favorece',
-    description: 'Tienes la libertad de explorar desde aviadores hasta cat eye.',
-    image: 'https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    shape: 'Rostro Corazón',
-    recommendation: 'Marcos Anchos en la Base',
-    description: 'Equilibra la frente amplia con monturas que aportan peso visual abajo.',
-    image: 'https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-];
+import { motion } from 'framer-motion';
+import { Square, Circle, Heart } from 'lucide-react';
 
 export default function StyleGuide() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const faces = [
+    {
+      icon: Square,
+      title: 'Rostro Cuadrado',
+      desc: 'Suaviza las líneas fuertes con marcos redondos u ovalados.',
+      color: 'bg-[#990000]'
+    },
+    {
+      icon: Circle,
+      title: 'Rostro Redondo',
+      desc: 'Añade definición con marcos rectangulares o "Cat Eye".',
+      color: 'bg-[#CC0000]'
+    },
+    {
+      icon: Heart,
+      title: 'Rostro Corazón',
+      desc: 'Equilibra la frente con marcos más anchos abajo.',
+      color: 'bg-[#990000]'
+    }
+  ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="guia" className="py-20 bg-[#FDF8F0]">
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">
-            Tu Rostro, Tu Marco Perfecto
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            El visagismo es un arte. Descubre qué estilo de montura resalta mejor tus facciones y personalidad.
-          </p>
-        </motion.div>
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          
+          <div className="lg:w-1/2">
+            <h2 className="font-serif text-4xl text-[#990000] mb-6">Dime tu rostro y te diré tu marco ideal</h2>
+            <p className="text-[#2D1A1A]/80 text-lg mb-8 leading-relaxed">
+              No se trata solo de ver bien, sino de verse bien. Aplicamos principios de diseño para equilibrar tus facciones.
+            </p>
+            
+            <div className="space-y-6">
+              {faces.map((face, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start gap-4"
+                >
+                  <div className={`${face.color} p-3 rounded-lg mt-1 text-white`}>
+                    <face.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-xl text-[#990000] mb-1">{face.title}</h4>
+                    <p className="text-sm text-[#2D1A1A]/70">{face.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {faceShapes.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              whileHover={{ y: -5 }}
-              className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.shape}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  {item.shape}
-                </h3>
-                <p className="text-accent font-semibold mb-2">{item.recommendation}</p>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-              </div>
-              <div className="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
-                Consejo
-              </div>
-            </motion.div>
-          ))}
+            {/* 👇 AQUÍ ESTÁ EL BOTÓN ARREGLADO */}
+            <div className="mt-10">
+              <a 
+                href="https://wa.me/573001234567" 
+                target="_blank"
+                // FONDO VINO (#990000) - TEXTO BLANCO (text-white)
+                className="inline-block bg-[#990000] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#CC0000] transition-colors shadow-lg"
+              >
+                Agenda tu Asesoría Personalizada
+              </a>
+            </div>
+          </div>
+          
+          {/* Imagen Visual */}
+          <div className="lg:w-1/2 w-full grid grid-cols-2 gap-4">
+             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" className="rounded-2xl shadow-xl mt-8" alt="Rostro 1" />
+             <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=400" className="rounded-2xl shadow-xl" alt="Rostro 2" />
+          </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <button
-            onClick={() => window.open('https://wa.me/573001234567', '_blank')}
-            className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
-          >
-            Agenda tu Asesoría Personalizada
-          </button>
-        </motion.div>
       </div>
     </section>
   );
