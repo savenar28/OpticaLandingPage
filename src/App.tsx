@@ -9,7 +9,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-cream">
       <Header />
       <Hero />
       <ValuePropositions />
