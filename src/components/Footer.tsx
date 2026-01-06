@@ -1,111 +1,53 @@
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Glasses, MapPin, Phone, Clock, Instagram, Facebook } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer id="contacto" className="bg-brand-wine text-brand-cream pt-16 pb-8">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          
+          {/* Marca */}
           <div>
-            <h3 className="font-serif text-2xl font-bold mb-4 text-accent">Óptica S&V</h3>
-            <p className="text-gray-300 mb-4">
-              20 años cuidando tu visión y estilo en Suba, Bogotá.
+            <div className="flex items-center gap-2 mb-6">
+              <div className="bg-brand-cream p-2 rounded-lg">
+                <Glasses className="w-6 h-6 text-brand-wine" />
+              </div>
+              <span className="font-serif text-2xl font-bold tracking-wide">Óptica S&V</span>
+            </div>
+            <p className="text-brand-cream/80 mb-6 leading-relaxed">
+              Transformamos tu visión en una declaración de estilo. Tecnología clínica y asesoría de imagen en un solo lugar.
             </p>
             <div className="flex space-x-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-accent p-2 rounded-full transition-colors duration-200"
-              >
+              <a href="#" className="w-10 h-10 rounded-full bg-brand-red/20 flex items-center justify-center hover:bg-brand-red transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-accent p-2 rounded-full transition-colors duration-200"
-              >
+              <a href="#" className="w-10 h-10 rounded-full bg-brand-red/20 flex items-center justify-center hover:bg-brand-red transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-accent p-2 rounded-full transition-colors duration-200"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
             </div>
           </div>
 
+          {/* Contacto */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-accent">Contacto</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <Phone className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="text-gray-300">+57 300 123 4567</p>
-                  <p className="text-sm text-gray-400">Lun - Sab: 9:00 AM - 7:00 PM</p>
-                </div>
+            <h3 className="font-serif text-xl mb-6 border-b border-brand-red/30 pb-2 inline-block">Contacto</h3>
+            <ul className="space-y-4 text-brand-cream/80">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-brand-red mt-1" />
+                <span>Av. Suba #123-45, Local 8<br/>Bogotá, Colombia</span>
               </li>
-              <li className="flex items-start">
-                <Mail className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
-                <a
-                  href="mailto:info@opticasyv.com"
-                  className="text-gray-300 hover:text-accent transition-colors"
-                >
-                  info@opticasyv.com
-                </a>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-brand-red" />
+                <span>+57 (601) 123 4567</span>
               </li>
-              <li className="flex items-start">
-                <MapPin className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
-                <p className="text-gray-300">Calle 145 #91-19, Suba, Bogotá</p>
+              <li className="flex items-center gap-3">
+                <Clock className="w-5 h-5 text-brand-red" />
+                <span>Lun - Sáb: 9:00 AM - 7:00 PM</span>
               </li>
             </ul>
           </div>
 
+          {/* Mapa Simulado */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-accent">Horarios</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-center">
-                <Clock className="w-4 h-4 mr-2" />
-                <span>Lunes - Viernes: 9:00 AM - 7:00 PM</span>
-              </li>
-              <li className="flex items-center ml-6">
-                <span>Sábados: 9:00 AM - 6:00 PM</span>
-              </li>
-              <li className="flex items-center ml-6">
-                <span>Domingos: Cerrado</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-lg mb-4 text-accent">Ubicación</h4>
-            <div className="bg-white/10 rounded-lg overflow-hidden h-48">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4234!2d-74.0856!3d4.7416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDQnMjkuOCJOIDc0wrAwNScwOC4yIlc!5e0!3m2!1ses!2sco!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación Óptica S&V"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-white/20 pt-8 text-center">
-          <p className="text-gray-300">
-            © {new Date().getFullYear()} Óptica S&V - Salud y Estilo. Todos los derechos reservados.
-          </p>
-          <p className="text-sm text-gray-400 mt-2">
-            Diseñado con pasión para quienes valoran la calidad y el estilo.
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-}
+            <h3 className="font-serif text-xl mb-6 border-b border-brand-red/30 pb-2 inline-block">Ubicación</h3>
+            <div className="bg-brand-red/10 h-48 rounded-lg flex items-center justify-center border border-brand-cream/10 relative overflow-hidden group">
+              <div className="abso
