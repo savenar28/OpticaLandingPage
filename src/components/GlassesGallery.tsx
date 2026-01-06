@@ -8,11 +8,12 @@ const collections = [
 
 export default function GlassesGallery() {
   return (
-    <section id="galeria" className="py-20 bg-brand-cream">
+    <section id="galeria" className="py-20 bg-[#FDF8F0]">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <span className="text-brand-red font-bold uppercase text-sm tracking-wider">Catálogo 2024</span>
-          <h2 className="font-serif text-4xl text-brand-wine mt-2">Nuestra Colección</h2>
+          {/* 👇 AQUÍ HEMOS CAMBIADO EL AÑO A 2026 */}
+          <span className="text-[#CC0000] font-bold uppercase text-sm tracking-wider">Catálogo 2026</span>
+          <h2 className="font-serif text-4xl text-[#990000] mt-2">Nuestra Colección</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -29,9 +30,9 @@ export default function GlassesGallery() {
                 alt={item.title} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-wine/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                <span className="text-brand-red text-sm font-bold uppercase mb-1">{item.category}</span>
-                <h3 className="text-brand-cream font-serif text-2xl">{item.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#990000]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                <span className="text-[#CC0000] text-sm font-bold uppercase mb-1">{item.category}</span>
+                <h3 className="text-[#FDF8F0] font-serif text-2xl">{item.title}</h3>
               </div>
             </motion.div>
           ))}
