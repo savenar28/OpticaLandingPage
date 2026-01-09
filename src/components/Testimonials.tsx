@@ -21,7 +21,7 @@ const testimonials = [
     role: 'Profesora Jubilada',
     content: 'Llevo 20 años confiando en Óptica S&V. El examen es preciso y me siento segura con mi vista.',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200'
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200'
   }
 ];
 
@@ -30,7 +30,7 @@ export default function Testimonials() {
     // 👇 HEMOS PUESTO EL CÓDIGO #990000 DIRECTAMENTE ENTRE CORCHETES
     <section id="testimonios" className="py-20 bg-[#990000] text-[#FDF8F0]">
       <div className="container mx-auto px-4 lg:px-8">
-        
+
         <div className="text-center mb-16">
           <Quote className="w-12 h-12 text-[#CC0000] mx-auto mb-4 opacity-50" />
           <h2 className="font-serif text-4xl font-bold mb-4 text-[#FDF8F0]">Lo que dicen nuestros clientes</h2>
@@ -51,7 +51,7 @@ export default function Testimonials() {
               className="bg-[#FDF8F0] p-8 rounded-2xl shadow-xl"
             >
               <div className="flex items-center gap-4 mb-6">
-                <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#CC0000]"/>
+                <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#CC0000]" />
                 <div>
                   <h3 className="font-bold text-[#990000]">{testimonial.name}</h3>
                   <p className="text-xs text-[#2D1A1A]/60 uppercase">{testimonial.role}</p>
